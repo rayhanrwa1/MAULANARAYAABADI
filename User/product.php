@@ -240,7 +240,7 @@ function formatRupiah($number) {
                                             // Use the product_photo_update field to get the relative image path
                                         $relativePathFromSQL = $row['product_photo_update']; // Example: 'assets/image_db/product.jpg'
                                         // Correct the path by prepending "../admin/"
-                                        $imagePath = "/admin/assets/image_db/produk/" . $relativePathFromSQL;
+                                        $imagePath = "/Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                     ?>
                                             <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
                                                 <div class="ltn__product-item ltn__product-item-3 text-center">
@@ -261,7 +261,7 @@ function formatRupiah($number) {
                                                                 <?php echo $row['item_name']; ?>
                                                             </a>
                                                         </h2>
-
+                                                        
                                                         <?php if ($row['stok_status'] == 1): ?>
                                                             <div class="product-price">
                                                                 <?php if (!empty($row['promo_price'])) { ?>
