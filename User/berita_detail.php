@@ -3,6 +3,10 @@
 
 <?php
 include 'connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 // Tangkap parameter entry_id dari URL
 $entry_id = isset($_GET['entry_id']) ? $_GET['entry_id'] : 0;
@@ -22,7 +26,7 @@ if ($result->num_rows > 0) {
     $publication_date = $row['publication_date'];
     $content_summary = $row['content_summary'];
     $relativePathFromSQL = $row['image_path']; // e.g., 'assets/image_db/berita/image.jpg'
-    $imagePath = "../Admin/" . htmlspecialchars($relativePathFromSQL); // Membuat path lengkap
+    $imagePath = $_SERVER['DOCUMENT_ROOT'] . "/Admin/" . htmlspecialchars($relativePathFromSQL);
 
     // URL artikel untuk dibagikan
     $articleURL = urlencode('https://maulanarayaabadi.com/article.php?entry_id=' . urlencode($entry_id));
