@@ -303,13 +303,13 @@ $conn->close();
                 <?php if (!empty($banner2)): ?>
                     <?php foreach ($banner2 as $banner): ?>
                         <div class="col-md-4">
-                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_1']); ?>" alt="Banner 1">
+                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_1']); ?>" alt="Banner 1">
                         </div>
                         <div class="col-md-4">
-                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_2']); ?>" alt="Banner 2">
+                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_2']); ?>" alt="Banner 2">
                         </div>
                         <div class="col-md-4">
-                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_3']); ?>" alt="Banner 3">
+                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_3']); ?>" alt="Banner 3">
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
