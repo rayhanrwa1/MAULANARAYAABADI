@@ -1,0 +1,23 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1589942/public_html/
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp signin.php $DEPLOYPATH
+    - /bin/cp -R partials $DEPLOYPATH
+    - /bin/cp -R connection $DEPLOYPATH
+    - /bin/cp -R backup $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp productManagement.php $DEPLOYPATH
+    - /bin/cp productOverview.php $DEPLOYPATH
+    - /bin/cp profile.php $DEPLOYPATH
+    - /bin/cp recoveryDB.php $DEPLOYPATH
+    - /bin/cp logout.php $DEPLOYPATH
+    - /bin/cp forget-password.php $DEPLOYPATH
+    - /bin/cp employeView.php $DEPLOYPATH
+    - /bin/cp delete_user.php $DEPLOYPATH  
+    - /bin/cp check_admin.php $DEPLOYPATH
+    - /bin/cp change_passwd_prof.php $DEPLOYPATH
+    - /bin/cp employeeView.php $DEPLOYPATH
+    - /bin/cp newsManagement.php $DEPLOYPATH
+    - /bin/cp newsOverview.php $DEPLOYPATH
