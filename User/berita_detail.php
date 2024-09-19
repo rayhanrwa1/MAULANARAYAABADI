@@ -7,26 +7,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 // Tangkap parameter entry_id dari URL
 $entry_id = isset($_GET['entry_id']) ? $_GET['entry_id'] : 0;
 
 // Query untuk mengambil data dari tabel `tbl_media_announcements` berdasarkan entry_id
-$sql = "SELECT * FROM tbl_media_announcements WHERE entry_id = ?";
+$sql = "SELECT entry_id, headline, publication_date, content_summary, image_path FROM tbl_media_announcements WHERE entry_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $entry_id);
 $stmt->execute();
-$result = $stmt->get_result();
 
-// Cek apakah ada data yang diambil
-if ($result->num_rows > 0) {
-    // Ambil data pertama dari hasil query
-    $row = $result->fetch_assoc();
-    $headline = $row['headline'];
-    $publication_date = $row['publication_date'];
-    $content_summary = $row['content_summary'];
-    $relativePathFromSQL = $row['image_path']; // e.g., 'assets/image_db/berita/image.jpg'
-    $imagePath = $_SERVER['DOCUMENT_ROOT'] . "/Admin/" . htmlspecialchars($relativePathFromSQL);
+// Bind hasil dari query
+$stmt->bind_result($entry_id_db, $headline, $publication_date, $content_summary, $relativePathFromSQL);
+
+// Fetch data
+if ($stmt->fetch()) {
+    // Mengatur jalur gambar
+    $imagePath = "../Admin/" . htmlspecialchars($relativePathFromSQL);
 
     // URL artikel untuk dibagikan
     $articleURL = urlencode('https://maulanarayaabadi.com/article.php?entry_id=' . urlencode($entry_id));
@@ -40,6 +36,10 @@ if ($result->num_rows > 0) {
     $articleURL = "";
     $shareText = "";
 }
+
+// Tutup statement
+$stmt->close();
+$conn->close();
 ?>
 
 
