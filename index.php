@@ -479,7 +479,7 @@ $conn->close();
                                 <?php
                                 // Correct image path
                                 $relativePathFromSQL = $row['product_photo_update'];
-                                $imagePath = "admin/assets/image_db/produk/" . $relativePathFromSQL;
+                                $imagePath = "Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                 ?>
                                 <a href="productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
                                 <div class="product-badge">
