@@ -303,13 +303,13 @@ $conn->close();
                 <?php if (!empty($banner2)): ?>
                     <?php foreach ($banner2 as $banner): ?>
                         <div class="col-md-4">
-                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_1']); ?>" alt="Banner 1">
+                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_1']); ?>" alt="Banner 1">
                         </div>
                         <div class="col-md-4">
-                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_2']); ?>" alt="Banner 2">
+                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_2']); ?>" alt="Banner 2">
                         </div>
                         <div class="col-md-4">
-                            <img src="Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_3']); ?>" alt="Banner 3">
+                            <img src="/Admin/assets/image_db/Banner/<?php echo htmlspecialchars($banner['product_3']); ?>" alt="Banner 3">
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -479,7 +479,7 @@ $conn->close();
                                 <?php
                                 // Correct image path
                                 $relativePathFromSQL = $row['product_photo_update'];
-                                $imagePath = "Admin/assets/image_db/produk/" . $relativePathFromSQL;
+                                $imagePath = "/Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                 ?>
                                 <a href="productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
                                 <div class="product-badge">
