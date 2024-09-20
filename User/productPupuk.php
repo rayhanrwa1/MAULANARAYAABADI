@@ -4,6 +4,10 @@
 <?php
 // Include file koneksi
 include 'connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 // Ambil product_id dari URL
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
@@ -20,7 +24,7 @@ $stmt->bind_result($product_id_db, $brochure_update, $whatsapp_link, $shopee_lin
 // Fetch data
 if ($stmt->fetch()) {
     // Ambil path untuk brosur
-    $brochurePath = "../admin/assets/image_db/produkFile/" . $brochure_update;
+    $brochurePath = "../Admin/assets/image_db/produkFile/" . $brochure_update;
 
     // Cek jika brosur ada
     $brochureExists = file_exists($brochurePath);
