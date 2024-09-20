@@ -262,7 +262,7 @@ $conn->close();
                                         <div class="single-large-img">
                                             <?php if ($productData) { ?>
                                                 <a href="#" data-rel="lightcase:myCollection">
-                                                    <img id="main-image" src="../admin/assets/image_db/produk/<?php echo $productData['product_photo_update']; ?>" alt="Image">
+                                                    <img id="main-image" src="/Admin/assets/image_db/produk/<?php echo $productData['product_photo_update']; ?>" alt="Image">
                                                 </a>
                                             <?php } else { ?>
                                                 <img src="img/product/1.png" alt="Image">
@@ -272,17 +272,17 @@ $conn->close();
                                     <div class="ltn__shop-details-small-img slick-arrow-2">
                                         <?php if ($productData['product_photo_update_2']) { ?>
                                             <div class="single-small-img">
-                                                <img class="small-image" src="../admin/assets/image_db/produk/produk2/<?php echo $productData['product_photo_update_2']; ?>" alt="Image" onclick="swapImage(this)">
+                                                <img class="small-image" src="/Admin/assets/image_db/produk/produk2/<?php echo $productData['product_photo_update_2']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
                                         <?php if ($productData['product_photo_update_3']) { ?>
                                             <div class="single-small-img">
-                                                <img class="small-image" src="../admin/assets/image_db/produk/produk3/<?php echo $productData['product_photo_update_3']; ?>" alt="Image" onclick="swapImage(this)">
+                                                <img class="small-image" src="/Admin/assets/image_db/produk/produk3/<?php echo $productData['product_photo_update_3']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
                                         <?php if ($productData['product_photo_update_4']) { ?>
                                             <div class="single-small-img">
-                                                <img class="small-image" src="../admin/assets/image_db/produk/produk4/<?php echo $productData['product_photo_update_4']; ?>" alt="Image" onclick="swapImage(this)">
+                                                <img class="small-image" src="/Admin/assets/image_db/produk/produk4/<?php echo $productData['product_photo_update_4']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
                                     </div>
