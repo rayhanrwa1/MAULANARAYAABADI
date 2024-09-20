@@ -9,34 +9,41 @@ include 'connection.php';
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
 // Query untuk mengambil data produk berdasarkan product_id
-$query = "SELECT * FROM tbl_pdk_893kk WHERE product_id = ?";
+$query = "SELECT product_id, brochure_update, whatsapp_link, shopee_link, tokopedia_link, product_name, product_price FROM tbl_pdk_893kk WHERE product_id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
-$result = $stmt->get_result();
-$productData = $result->fetch_assoc();
 
-// Ambil path untuk brosur
-$brochurePath = "../admin/assets/image_db/produkFile/" . $productData['brochure_update'];
+// Bind hasil dari query
+$stmt->bind_result($product_id_db, $brochure_update, $whatsapp_link, $shopee_link, $tokopedia_link, $product_name, $product_price);
 
-// Cek jika brosur ada
-$brochureExists = file_exists($brochurePath);
+// Fetch data
+if ($stmt->fetch()) {
+    // Ambil path untuk brosur
+    $brochurePath = "../admin/assets/image_db/produkFile/" . $brochure_update;
 
-// Pastikan data ditemukan
-if (!$productData) {
+    // Cek jika brosur ada
+    $brochureExists = file_exists($brochurePath);
+
+    // Fungsi untuk memformat harga
+    function formatRupiah($angka) {
+        return "Rp " . number_format($angka, 0, ',', '.');
+    }
+
+    // Ambil data sosial media
+    // WhatsApp, Shopee, dan Tokopedia link sudah di-bind menggunakan bind_result()
+    $whatsapp_link = htmlspecialchars($whatsapp_link);
+    $shopee_link = htmlspecialchars($shopee_link);
+    $tokopedia_link = htmlspecialchars($tokopedia_link);
+
+} else {
     echo "Produk tidak ditemukan.";
     exit;
 }
 
-// Fungsi untuk memformat harga
-function formatRupiah($angka) {
-    return "Rp " . number_format($angka, 0, ',', '.');
-}
-
-// Ambil data sosial media dari database
-$whatsapp_link = $productData['whatsapp_link'];
-$shopee_link = $productData['shopee_link'];
-$tokopedia_link = $productData['tokopedia_link'];
+// Tutup statement
+$stmt->close();
+$conn->close();
 ?>
 
 <head>
