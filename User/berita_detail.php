@@ -25,7 +25,7 @@ if ($stmt->fetch()) {
     $imagePath = "../Admin/" . htmlspecialchars($relativePathFromSQL);
 
     // URL artikel untuk dibagikan
-    $articleURL = urlencode('https://maulanarayaabadi.com/User/article.php?entry_id=' . urlencode($entry_id));
+    $articleURL = urlencode('https://maulanarayaabadi.com/User/berita_detail.php?entry_id=' . urlencode($entry_id));
     $shareText = urlencode($headline); // Teks yang dibagikan
 } else {
     // Jika tidak ada data, tampilkan default message
