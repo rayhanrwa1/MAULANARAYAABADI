@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
+    
 <?php
 // Include file koneksi
 include 'connection.php';
@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
 // Query untuk mengambil data produk berdasarkan product_id
-$query = "SELECT * FROM tbl_pdk_893kk WHERE product_id = ?";
+$query = "SELECT product_id, item_name, price, promo_price, whatsapp_link, shopee_link, tokopedia_link, brochure_update FROM tbl_pdk_893kk WHERE product_id = ?";
 
 // Siapkan statement
 $stmt = $conn->prepare($query);
@@ -35,7 +35,7 @@ $stmt->bind_param("i", $product_id);
 $stmt->execute();
 
 // Bind hasil dari query
-$stmt->bind_result($product_id_db, $brochure_update, $whatsapp_link, $shopee_link, $tokopedia_link, $product_name, $product_price);
+$stmt->bind_result($product_id_db, $item_name, $price, $promo_price, $whatsapp_link, $shopee_link, $tokopedia_link, $brochure_update);
 
 // Fetch data
 if ($stmt->fetch()) {
