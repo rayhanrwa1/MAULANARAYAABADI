@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
 // Query untuk mengambil data produk berdasarkan product_id
-$query = "SELECT product_id, brochure_update, whatsapp_link, shopee_link, tokopedia_link, product_name, product_price FROM tbl_pdk_893kk WHERE product_id = ?";
+$query = "SELECT * FROM tbl_pdk_893kk WHERE product_id = ?";
 
 // Siapkan statement
 $stmt = $conn->prepare($query);
