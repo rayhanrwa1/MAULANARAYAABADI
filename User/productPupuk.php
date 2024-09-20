@@ -336,22 +336,22 @@ $conn->close();
                                         <ul>
                                             <li>Share:</li>
                                             <li>
-                                                <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Cek produk ini: https://maulanarayaabadi.com/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>" title="WhatsApp" target="_blank">
+                                                <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Cek produk ini: https://maulanarayaabadi.com/User/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>" title="WhatsApp" target="_blank">
                                                     <i class="fab fa-whatsapp"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('hhttps://maulanarayaabadi.com/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>" title="Facebook" target="_blank">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('hhttps://maulanarayaabadi.com/User/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>" title="Facebook" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://maulanarayaabadi.com/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>&text=<?php echo urlencode('Lihat produk keren ini!'); ?>" title="Twitter" target="_blank">
+                                                <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://maulanarayaabadi.com/User/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>&text=<?php echo urlencode('Lihat produk keren ini!'); ?>" title="Twitter" target="_blank">
                                                     <i class="fab fa-twitter"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode('https://maulanarayaabadi.com/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>&title=<?php echo urlencode('Product Title'); ?>&summary=<?php echo urlencode('Product Description'); ?>" title="Linkedin" target="_blank">
+                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode('https://maulanarayaabadi.com/User/productPupuk.php?product_id=' . urlencode($productData['product_id'])); ?>&title=<?php echo urlencode('Product Title'); ?>&summary=<?php echo urlencode('Product Description'); ?>" title="Linkedin" target="_blank">
                                                     <i class="fab fa-linkedin"></i>
                                                 </a>
                                             </li>
