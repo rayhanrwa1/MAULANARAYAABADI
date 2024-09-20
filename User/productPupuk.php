@@ -4,18 +4,34 @@
 <?php
 // Include file koneksi
 include 'connection.php';
+
+// Menampilkan error untuk debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Cek koneksi database
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 
 // Ambil product_id dari URL
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
 // Query untuk mengambil data produk berdasarkan product_id
 $query = "SELECT product_id, brochure_update, whatsapp_link, shopee_link, tokopedia_link, product_name, product_price FROM tbl_pdk_893kk WHERE product_id = ?";
+
+// Siapkan statement
 $stmt = $conn->prepare($query);
+
+if ($stmt === false) {
+    die("Gagal menyiapkan statement: " . $conn->error);
+}
+
+// Bind parameter
 $stmt->bind_param("i", $product_id);
+
+// Eksekusi statement
 $stmt->execute();
 
 // Bind hasil dari query
@@ -35,7 +51,6 @@ if ($stmt->fetch()) {
     }
 
     // Ambil data sosial media
-    // WhatsApp, Shopee, dan Tokopedia link sudah di-bind menggunakan bind_result()
     $whatsapp_link = htmlspecialchars($whatsapp_link);
     $shopee_link = htmlspecialchars($shopee_link);
     $tokopedia_link = htmlspecialchars($tokopedia_link);
@@ -45,10 +60,11 @@ if ($stmt->fetch()) {
     exit;
 }
 
-// Tutup statement
+// Tutup statement dan koneksi
 $stmt->close();
 $conn->close();
 ?>
+
 
 <head>
     <meta charset="utf-8">
