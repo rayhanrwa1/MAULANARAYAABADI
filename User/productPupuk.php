@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
 // Query untuk mengambil data produk berdasarkan product_id
-$query = "SELECT product_id, brochure_update, whatsapp_link, shopee_link, tokopedia_link, item_name, price, item_description, stok_status, promo_price FROM tbl_pdk_893kk WHERE product_id = ?";
+$query = "SELECT product_id, brochure_update, whatsapp_link, shopee_link, tokopedia_link, item_name, price, item_description, stok_status, promo_price, product_photo_update, product_photo_update_2, product_photo_update_3, product_photo_update_4 FROM tbl_pdk_893kk WHERE product_id = ?";
 
 // Siapkan statement
 $stmt = $conn->prepare($query);
@@ -35,24 +35,28 @@ $stmt->bind_param("i", $product_id);
 $stmt->execute();
 
 // Bind hasil dari query
-$stmt->bind_result($product_id_db, $brochure_update, $whatsapp_link, $shopee_link, $tokopedia_link, $item_name, $price, $item_description, $stok_status, $promo_price);
+$stmt->bind_result($product_id_db, $brochure_update, $whatsapp_link, $shopee_link, $tokopedia_link, $item_name, $price, $item_description, $stok_status, $promo_price, $product_photo_update, $product_photo_update_2, $product_photo_update_3, $product_photo_update_4);
 
-// Fetch data
-$productData = []; // Inisialisasi array
+// Inisialisasi array untuk menyimpan data produk
+$productData = [];
 
 if ($stmt->fetch()) {
     // Masukkan data ke dalam array
     $productData = [
         "product_id" => $product_id_db,
         "brochure_update" => $brochure_update,
-        "whatsapp_link" => $whatsapp_link,
-        "shopee_link" => $shopee_link,
-        "tokopedia_link" => $tokopedia_link,
+        "whatsapp_link" => htmlspecialchars($whatsapp_link),
+        "shopee_link" => htmlspecialchars($shopee_link),
+        "tokopedia_link" => htmlspecialchars($tokopedia_link),
         "item_name" => $item_name,
         "price" => $price,
         "item_description" => $item_description,
         "stok_status" => $stok_status,
         "promo_price" => $promo_price,
+        "product_photo_update" => $product_photo_update,
+        "product_photo_update_2" => $product_photo_update_2,
+        "product_photo_update_3" => $product_photo_update_3,
+        "product_photo_update_4" => $product_photo_update_4,
     ];
 
     // Ambil path untuk brosur
@@ -65,12 +69,6 @@ if ($stmt->fetch()) {
     function formatRupiah($angka) {
         return "Rp " . number_format($angka, 0, ',', '.');
     }
-
-    // Ambil data sosial media
-    $whatsapp_link = htmlspecialchars($whatsapp_link);
-    $shopee_link = htmlspecialchars($shopee_link);
-    $tokopedia_link = htmlspecialchars($tokopedia_link);
-
 } else {
     echo "Produk tidak ditemukan.";
     exit;
@@ -80,7 +78,6 @@ if ($stmt->fetch()) {
 $stmt->close();
 $conn->close();
 ?>
-
 
 <head>
     <meta charset="utf-8">
