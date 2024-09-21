@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Tangkap parameter entry_id dari URL
+// Tangkpa parameter entry_id dari URL
 $entry_id = isset($_GET['entry_id']) ? $_GET['entry_id'] : 0;
 
 // Query untuk mengambil data dari tabel `tbl_media_announcements` berdasarkan entry_id

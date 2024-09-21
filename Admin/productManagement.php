@@ -292,7 +292,14 @@ $notificationsQuery = "
 
 // Execute the query
 $notificationsResult = $conn->query($notificationsQuery);
-$notifications = ($notificationsResult === FALSE) ? [] : $notificationsResult->fetch_all(MYSQLI_ASSOC);
+$notifications = [];
+
+if ($notificationsResult !== FALSE) {
+    while ($row = $notificationsResult->fetch_assoc()) {
+        $notifications[] = $row;
+    }
+}
+
 
 // Handle product delete
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
