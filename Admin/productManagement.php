@@ -67,30 +67,23 @@ if (isset($_GET['edit'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $product_id);
     $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $product = $result->fetch_assoc();
+
+    // Bind the result columns
+    $stmt->bind_result($item_name, $product_number, $price, $promo_price, $category, 
+                       $item_description, $product_type, $stok_status, $is_popular, 
+                       $whatsapp_link, $shopee_link, $tokopedia_link, $product_photo_update, 
+                       $product_photo_update_2, $product_photo_update_3, $product_photo_update_4, 
+                       $brochure_update);
+
+    // Fetch the result
+    if ($stmt->fetch()) {
         // Assign values
-        $item_name = $product['item_name'];
-        $product_number = $product['product_number'];
-        $price = $product['price'];
-        $promo_price = $product['promo_price'];
-        $category = $product['category'];
-        $item_description = $product['item_description'];
-        $product_type = $product['product_type'];
-        $stok_status = $product['stok_status'];
-        $is_popular = $product['is_popular'];
-        $whatsapp_link = $product['whatsapp_link'];
-        $shopee_link = $product['shopee_link'];
-        $tokopedia_link = $product['tokopedia_link'];
-        $product_photo_update = $product['product_photo_update'];
-        $product_photo_update_2 = $product['product_photo_update_2'];
-        $product_photo_update_3 = $product['product_photo_update_3'];
-        $product_photo_update_4 = $product['product_photo_update_4'];
-        $brochure_update = $product['brochure_update'];
+        // Variabel sudah di-bind langsung ke dalam bind_result, jadi nilai sudah otomatis terisi
     }
+    
     $stmt->close();
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle form submission and file uploads

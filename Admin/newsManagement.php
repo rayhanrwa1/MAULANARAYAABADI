@@ -48,7 +48,7 @@ $entry_id = null;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headline = $_POST['headline'];
     $publication_date = $_POST['publication_date'];
-    $content_summary = $_POST['content_summary'];
+    $content_summary = $_POST['content_summary']; // Raw data, no htmlspecialchars to preserve formatting
     $entry_id = isset($_POST['entry_id']) ? $_POST['entry_id'] : null;
 
     // Handle file upload
@@ -122,7 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
 // Handle delete request
 if (isset($_GET['delete'])) {
     $entry_id = $_GET['delete'];
@@ -159,7 +158,6 @@ if (isset($_GET['delete'])) {
     }
 }
 
-
 // Fetch data for editing if entry_id is set
 if (isset($_GET['edit'])) {
     $entry_id = $_GET['edit'];
@@ -170,7 +168,7 @@ if (isset($_GET['edit'])) {
         $edit_row = $edit_result->fetch_assoc();
         $headline = $edit_row['headline'];
         $publication_date = $edit_row['publication_date'];
-        $content_summary = $edit_row['content_summary'];
+        $content_summary = $edit_row['content_summary']; // Keep raw data to preserve formatting
         $image_path = $edit_row['image_path'];
     }
 }

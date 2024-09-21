@@ -227,7 +227,9 @@ $conn->close();
                             <?php if (!empty($imagePath)): ?>
                                 <img src="<?php echo htmlspecialchars($imagePath); ?>" alt="Image">
                             <?php endif; ?>
-                            <p><?php echo htmlspecialchars($content_summary); ?></p>
+                            <p style="font-size: 16px; color: #4b9532; line-height: 1.6; padding: 10px;">
+                                <?php echo nl2br(htmlspecialchars($content_summary)); ?>
+                            </p>
 
                             <!-- Social Media Share -->
                             <div class="ltn__social-media">
