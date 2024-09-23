@@ -256,7 +256,7 @@ $conn->close();
                 <div class="col-lg-12 col-md-12">
                     <div class="ltn__shop-details-inner mb-60">
                         <div class="row">
-    `                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="ltn__shop-details-img-gallery">
                                     <div class="ltn__shop-details-large-img">
                                         <div class="single-large-img">
