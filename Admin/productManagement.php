@@ -67,13 +67,13 @@ if (isset($_GET['edit'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $product_id);
     $stmt->execute();
-
-    // Bind the result columns
+    
     $stmt->bind_result($item_name, $product_number, $price, $promo_price, $category, 
-                       $item_description, $product_type, $stok_status, $is_popular, 
-                       $whatsapp_link, $shopee_link, $tokopedia_link, $product_photo_update, 
-                       $product_photo_update_2, $product_photo_update_3, $product_photo_update_4, 
-                       $brochure_update);
+    $item_description, $product_type, $stok_status, $is_popular, 
+    $whatsapp_link, $shopee_link, $tokopedia_link, $product_photo_update, 
+    $product_photo_update_2, $product_photo_update_3, $product_photo_update_4, 
+    $brochure_update);
+    
 
     // Fetch the result
     if ($stmt->fetch()) {
