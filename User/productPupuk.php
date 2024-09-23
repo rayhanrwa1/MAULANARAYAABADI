@@ -270,17 +270,25 @@ $conn->close();
                                         </div>
                                     </div>
                                     <div class="ltn__shop-details-small-img slick-arrow-2">
-                                        <?php if (!empty($productData['product_photo_update_2'])) { ?>
+                                        <?php 
+                                        // Cek apakah 'product_photo_update_2' tidak kosong dan file ada di direktori
+                                        if (!empty($productData['product_photo_update_2']) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/Admin/assets/image_db/produk/produk2/' . $productData['product_photo_update_2'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk2/<?php echo $productData['product_photo_update_2']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
-                                        <?php if (!empty($productData['product_photo_update_3'])) { ?>
+                                        
+                                        <?php 
+                                        // Cek apakah 'product_photo_update_3' tidak kosong dan file ada di direktori
+                                        if (!empty($productData['product_photo_update_3']) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/Admin/assets/image_db/produk/produk3/' . $productData['product_photo_update_3'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk3/<?php echo $productData['product_photo_update_3']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
-                                        <?php if (!empty($productData['product_photo_update_4'])) { ?>
+                                        
+                                        <?php 
+                                        // Cek apakah 'product_photo_update_4' tidak kosong dan file ada di direktori
+                                        if (!empty($productData['product_photo_update_4']) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/Admin/assets/image_db/produk/produk4/' . $productData['product_photo_update_4'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk4/<?php echo $productData['product_photo_update_4']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
