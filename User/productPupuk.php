@@ -256,7 +256,7 @@ $conn->close();
                 <div class="col-lg-12 col-md-12">
                     <div class="ltn__shop-details-inner mb-60">
                         <div class="row">
-                            <div class="col-md-6">
+    `                        <div class="col-md-6">
                                 <div class="ltn__shop-details-img-gallery">
                                     <div class="ltn__shop-details-large-img">
                                         <div class="single-large-img">
@@ -270,17 +270,17 @@ $conn->close();
                                         </div>
                                     </div>
                                     <div class="ltn__shop-details-small-img slick-arrow-2">
-                                        <?php if ($productData['product_photo_update_2']) { ?>
+                                        <?php if (!empty($productData['product_photo_update_2'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk2/<?php echo $productData['product_photo_update_2']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
-                                        <?php if ($productData['product_photo_update_3']) { ?>
+                                        <?php if (!empty($productData['product_photo_update_3'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk3/<?php echo $productData['product_photo_update_3']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
                                         <?php } ?>
-                                        <?php if ($productData['product_photo_update_4']) { ?>
+                                        <?php if (!empty($productData['product_photo_update_4'])) { ?>
                                             <div class="single-small-img">
                                                 <img class="small-image" src="/Admin/assets/image_db/produk/produk4/<?php echo $productData['product_photo_update_4']; ?>" alt="Image" onclick="swapImage(this)">
                                             </div>
