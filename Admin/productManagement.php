@@ -116,19 +116,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $product_id);
         $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $files = $result->fetch_assoc();
+    
+        // Bind results to variables
+        $stmt->bind_result($product_photo_update, $product_photo_update_2, $product_photo_update_3, $product_photo_update_4, $brochure_update);
+    
+        // Fetch the data
+        if ($stmt->fetch()) {
             $old_files = [
-                'product_photo_update' => $files['product_photo_update'],
-                'product_photo_update_2' => $files['product_photo_update_2'],
-                'product_photo_update_3' => $files['product_photo_update_3'],
-                'product_photo_update_4' => $files['product_photo_update_4'],
-                'brochure_update' => $files['brochure_update']
+                'product_photo_update' => $product_photo_update,
+                'product_photo_update_2' => $product_photo_update_2,
+                'product_photo_update_3' => $product_photo_update_3,
+                'product_photo_update_4' => $product_photo_update_4,
+                'brochure_update' => $brochure_update
             ];
         }
+    
         $stmt->close();
-    }
+    }    
 
     // Process file uploads
     foreach ($upload_paths as $key => $path) {
