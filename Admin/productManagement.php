@@ -63,7 +63,7 @@ $new_files_uploaded = [
 
 if (isset($_GET['edit'])) {
     $product_id = $_GET['edit'];
-    $sql = "SELECT * FROM tbl_pdk_893kk WHERE product_id = ?";
+    $sql = "SELECT item_name, product_number, price, promo_price, category, item_description, product_type, stok_status, is_popular, whatsapp_link, shopee_link, tokopedia_link, product_photo_update, product_photo_update_2, product_photo_update_3, product_photo_update_4, brochure_update FROM tbl_pdk_893kk WHERE product_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $product_id);
     $stmt->execute();
