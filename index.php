@@ -226,7 +226,7 @@ $conn->close();
                                             <p id="fontPT2">PT. Maulana Raya Abadi sendiri sampai saat ini bergerak dalam bidang Distributor, Trading dan Retail Pupuk Non Subsidi PT. Pupuk Indonesia dan Pupuk Import lainnya dengan memiliki jaringan pemasaran yang tersebar luas di Indonesia</p>
                                         </div>
                                         <div class="btn-wrapper animated">
-                                            <a href="/User/product.php" class="theme-btn-1 btn btn-effect-1 text-uppercase">Lihat Produk</a>
+                                            <a href="User/product.php" class="theme-btn-1 btn btn-effect-1 text-uppercase">Lihat Produk</a>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ $conn->close();
                                         </div>
                                         <div class="btn-wrapper animated">
                                             <a href="User/product.php" class="theme-btn-1 btn btn-effect-1 text-uppercase">Lihat Produk</a>
-                                            <a href="User/pdf/pk.pdf" class="btn btn-transparent btn-effect-3" id="fontPT" target="_blank">Pengetahuan Produk</a>
+                                            <a href="/User/pdf/pk.pdf" class="btn btn-transparent btn-effect-3" id="fontPT" target="_blank">Pengetahuan Produk</a>
                                         </div>
                                     </div>
                                 </div>
@@ -488,7 +488,7 @@ $conn->close();
                                 $relativePathFromSQL = $row['product_photo_update'];
                                 $imagePath = "/Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                 ?>
-                                <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
+                                <a href="/User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
                                         <li class="sale-badge">Unggulan</li>
@@ -497,7 +497,7 @@ $conn->close();
                             </div>
                             <div class="product-info">
                                 <h2 class="product-title">
-                                    <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
+                                    <a href="/User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
                                         <?php echo $row['item_name']; ?>
                                     </a>
                                 </h2>
