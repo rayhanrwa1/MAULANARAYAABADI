@@ -497,7 +497,7 @@ $conn->close();
                             </div>
                             <div class="product-info">
                                 <h2 class="product-title">
-                                    <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
+                                    <a href="/User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
                                         <?php echo $row['item_name']; ?>
                                     </a>
                                 </h2>
