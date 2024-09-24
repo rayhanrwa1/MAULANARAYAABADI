@@ -5,7 +5,7 @@
 include "connection.php";
 
 // Menghitung total data dari query
-$query_total = "SELECT COUNT(*) AS total FROM tbl_pdk_893kk WHERE product_type = 'Non Pupuk'";
+$query_total = "SELECT COUNT(*) AS total FROM tbl_pdk_893kk WHERE product_type = 'Pupuk' AND stok_status = 1";
 $result_total = mysqli_query($conn, $query_total);
 $row_total = mysqli_fetch_assoc($result_total);
 $total_data = $row_total['total'];
@@ -22,17 +22,16 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 // Menghitung posisi data pertama yang akan diambil untuk halaman saat ini
 $start = ($page - 1) * $limit;
 
-// Query untuk mengambil data sesuai halaman saat ini
-$query_pagination = "SELECT * FROM tbl_pdk_893kk WHERE product_type = 'Non Pupuk' LIMIT $start, $limit";
+// Query untuk mengambil data sesuai halaman saat ini tanpa pengurutan
+$query_pagination = "SELECT * FROM tbl_pdk_893kk WHERE product_type = 'Pupuk' AND stok_status = 1 LIMIT $start, $limit";
 $result_pagination = mysqli_query($conn, $query_pagination);
 
-// Ambil parameter 'sort' dari URL, default ke 'latest'
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'latest';
-
-// Tentukan urutan berdasarkan pilihan
-$orderBy = 'created_at DESC'; // Default ke terbaru
-if ($sort === 'oldest') {
-    $orderBy = 'created_at ASC'; // Urutan dari terlama
+// Cek apakah query berhasil
+if ($result_pagination) {
+    $num_rows = mysqli_num_rows($result_pagination);
+} else {
+    $num_rows = 0;
+    echo "Error in query: " . mysqli_error($conn); // Untuk debug
 }
 
 function formatRupiah($number) {
@@ -44,6 +43,7 @@ function formatRupiah($number) {
 }
 
 ?>
+
 
 <head>
     <meta charset="utf-8">
@@ -190,7 +190,6 @@ function formatRupiah($number) {
         </div>
     </div>
     <!-- Utilize Mobile Menu End -->
-
     <div class="ltn__utilize-overlay"></div>
 
     <!-- BREADCRUMB AREA START -->
@@ -229,10 +228,10 @@ function formatRupiah($number) {
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                            <div class="showing-product-number text-right text-end">
-                                    <span>Menampilkan <?php echo mysqli_num_rows($result_pagination); ?> dari <?php echo $total_data; ?> hasil</span>
-                                </div> 
+                            <li>             
+                                <div class="showing-product-number text-right text-end">
+                                    <span>Menampilkan <?php echo $num_rows; ?> dari <?php echo $total_data; ?> hasil</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -255,11 +254,13 @@ function formatRupiah($number) {
                                                             <img src="<?php echo $imagePath; ?>" alt="<?php echo $row['item_name']; ?>"
                                                                 style="<?php echo ($row['stok_status'] == 0) ? 'filter: grayscale(1);' : ''; ?>">
                                                         </a>
-                                                        <div class="product-badge">
-                                                            <ul>
-                                                                <li class="sale-badge"><?php echo $row['category']; ?> %</li>
-                                                            </ul>
-                                                        </div>
+                                                        <?php if (!empty($row['category'])) { ?>
+                                                            <div class="product-badge">
+                                                                <ul>
+                                                                    <li class="sale-badge"><?php echo $row['category']; ?> %</li>
+                                                                </ul>
+                                                            </div>
+                                                        <?php } ?>
                                                     </div>
                                                     <div class="product-info">
                                                         <h2 class="product-title">

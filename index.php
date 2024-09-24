@@ -49,7 +49,7 @@ if ($result_products->num_rows > 0) {
         $products[] = $row_products;
     }
 } else {
-    echo "No popular products found.";
+    echo "";
 }
 
 $conn->close();
@@ -118,8 +118,14 @@ $conn->close();
                                                 </li>
                                                 <li><a href="#">Produk</a>
                                                     <ul>
-                                                        <li><a href="User/product.php">Pupuk</a></li>
-                                                        <li><a href="User/nonpupuk.php">Non Pupuk</a></li>
+                                                        <li><a href="#">Pupuk</a>
+                                                            <ul>
+                                                                <li><a href="User/product.php">Semua Pupuk</a></li>
+                                                                <li><a href="User/readystok_pupuk.php">Stok Tersedia</a></li>
+                                                                <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="nonpupuk.php">Non Pupuk</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#"><img src="User/img/background/mumu_nav.svg" alt="#"></a>
@@ -180,13 +186,14 @@ $conn->close();
                                     <li><a href="User/karier.php">Karier</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Produk</a>
+                            <li><a href="#">Pupuk</a>
                                 <ul>
-                                    <li><a href="User/product.php">Pupuk</a></li>
-                                    <li><a href="User/nonpupuk.php">Non Pupuk</a></li>
+                                    <li><a href="User/product.php">Semua Pupuk</a></li>
+                                    <li><a href="User/readystok_pupuk.php">Stok Tersedia</a></li>
+                                    <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><img src="User/img/background/mumu_nav.svg" alt="#"></a>
+                            <li><a href="nonpupuk.php">Non Pupuk</a></li>
                             </li>
                         </ul>
                     </li>
@@ -481,7 +488,7 @@ $conn->close();
                                 $relativePathFromSQL = $row['product_photo_update'];
                                 $imagePath = "/Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                 ?>
-                                <a href="productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
+                                <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
                                         <li class="sale-badge">Unggulan</li>
@@ -490,7 +497,7 @@ $conn->close();
                             </div>
                             <div class="product-info">
                                 <h2 class="product-title">
-                                    <a href="productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
+                                    <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
                                         <?php echo $row['item_name']; ?>
                                     </a>
                                 </h2>

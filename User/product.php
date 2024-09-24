@@ -107,7 +107,13 @@ function formatRupiah($number) {
                                                 </li>
                                                 <li><a href="#">Produk</a>
                                                     <ul>
-                                                        <li><a href="product.php">Pupuk</a></li>
+                                                        <li><a href="#">Pupuk</a>
+                                                            <ul>
+                                                                <li><a href="product.php">Semua Pupuk</a></li>
+                                                                <li><a href="readystok_pupuk.php">Stok Tersedia</a></li>
+                                                                <li><a href="readystokPromopupuk.php">Stok Promo</a></li>
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="nonpupuk.php">Non Pupuk</a></li>
                                                     </ul>
                                                 </li>
@@ -169,14 +175,14 @@ function formatRupiah($number) {
                                     <li><a href="karier.php">Karier</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Produk</a>
+                            <li><a href="#">Pupuk</a>
                                 <ul>
-                                    <li><a href="product.php">Pupuk</a></li>
-                                    <li><a href="nonpupuk.php">Non Pupuk</a></li>
+                                    <li><a href="User/product.php">Semua Pupuk</a></li>
+                                    <li><a href="User/readystok_pupuk.php">Stok Tersedia</a></li>
+                                    <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><img src="img/background/mumu_nav.svg" alt="#"></a>
-                            </li>
+                            <li><a href="nonpupuk.php">Non Pupuk</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -249,11 +255,13 @@ function formatRupiah($number) {
                                                             <img src="<?php echo $imagePath; ?>" alt="<?php echo $row['item_name']; ?>"
                                                                 style="<?php echo ($row['stok_status'] == 0) ? 'filter: grayscale(1);' : ''; ?>">
                                                         </a>
-                                                        <div class="product-badge">
-                                                            <ul>
-                                                                <li class="sale-badge"><?php echo $row['category']; ?> %</li>
-                                                            </ul>
-                                                        </div>
+                                                        <?php if (!empty($row['category'])) { ?>
+                                                            <div class="product-badge">
+                                                                <ul>
+                                                                    <li class="sale-badge"><?php echo $row['category']; ?> %</li>
+                                                                </ul>
+                                                            </div>
+                                                        <?php } ?>
                                                     </div>
                                                     <div class="product-info">
                                                         <h2 class="product-title">

@@ -142,7 +142,13 @@ $conn->close();
                                                 </li>
                                                 <li><a href="#">Produk</a>
                                                     <ul>
-                                                        <li><a href="product.php">Pupuk</a></li>
+                                                        <li><a href="#">Pupuk</a>
+                                                            <ul>
+                                                                <li><a href="product.php">Semua Pupuk</a></li>
+                                                                <li><a href="readystok_pupuk.php">Stok Tersedia</a></li>
+                                                                <li><a href="readystokPromopupuk.php">Stok Promo</a></li>
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="nonpupuk.php">Non Pupuk</a></li>
                                                     </ul>
                                                 </li>
@@ -204,14 +210,14 @@ $conn->close();
                                     <li><a href="karier.php">Karier</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Produk</a>
+                            <li><a href="#">Pupuk</a>
                                 <ul>
-                                    <li><a href="product.php">Pupuk</a></li>
-                                    <li><a href="nonpupuk.php">Non Pupuk</a></li>
+                                    <li><a href="User/product.php">Semua Pupuk</a></li>
+                                    <li><a href="User/readystok_pupuk.php">Stok Tersedia</a></li>
+                                    <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><img src="img/background/mumu_nav.svg" alt="#"></a>
-                            </li>
+                            <li><a href="nonpupuk.php">Non Pupuk</a></li>
                         </ul>
                     </li>
                 </ul>
