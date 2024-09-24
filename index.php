@@ -125,7 +125,7 @@ $conn->close();
                                                                 <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
                                                             </ul>
                                                         </li>
-                                                        <li><a href="nonpupuk.php">Non Pupuk</a></li>
+                                                        <li><a href="User/nonpupuk.php">Non Pupuk</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#"><img src="User/img/background/mumu_nav.svg" alt="#"></a>
@@ -193,7 +193,7 @@ $conn->close();
                                     <li><a href="User/readystokPromopupuk.php">Stok Promo</a></li>
                                 </ul>
                             </li>
-                            <li><a href="nonpupuk.php">Non Pupuk</a></li>
+                            <li><a href="User/nonpupuk.php">Non Pupuk</a></li>
                             </li>
                         </ul>
                     </li>
