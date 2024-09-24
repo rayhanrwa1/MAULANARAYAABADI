@@ -488,7 +488,7 @@ $conn->close();
                                 $relativePathFromSQL = $row['product_photo_update'];
                                 $imagePath = "/Admin/assets/image_db/produk/" . $relativePathFromSQL;
                                 ?>
-                                <a href="/User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
+                                <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>"><img src="<?php echo $imagePath; ?>" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
                                         <li class="sale-badge">Unggulan</li>
@@ -497,7 +497,7 @@ $conn->close();
                             </div>
                             <div class="product-info">
                                 <h2 class="product-title">
-                                    <a href="/User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
+                                    <a href="User/productPupuk.php?product_id=<?php echo $row['product_id']; ?>">
                                         <?php echo $row['item_name']; ?>
                                     </a>
                                 </h2>
