@@ -199,12 +199,12 @@ function formatRupiah($number) {
                 <div class="col-lg-12">
                     <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
                         <div class="section-title-area ltn__section-title-2">
-                            <h1 class="section-title white-color">Produk Pupuk</h1>
+                            <h1 class="section-title white-color">Pupuk Tersedia - Stok Siap Kirim!</h1>
                         </div>
                         <div class="ltn__breadcrumb-list">
                             <ul>
                                 <li><a href="index.html">Beranda</a></li>
-                                <li>Pupuk</li>
+                                <li>Pupuk Tersedia</li>
                             </ul>
                         </div>
                     </div>
