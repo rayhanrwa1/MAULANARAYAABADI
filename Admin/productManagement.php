@@ -509,7 +509,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="text" name="product_number" placeholder="Jenis Produk (Opsional)" class="form-control" value="<?php echo htmlspecialchars($product_number); ?>"/>
                 </div>
                 <div class="geex-content__form__single__box mt-2">
-                    <input type="text" name="price" placeholder="Harga (Wajib)" class="form-control" value="<?php echo htmlspecialchars($price); ?>" required />
+                    <input type="text" name="price" placeholder="Harga" class="form-control" value="<?php echo htmlspecialchars($price); ?>"/>
                     <input type="text" name="promo_price" placeholder="Harga Promo (Opsional)" class="form-control" value="<?php echo htmlspecialchars($promo_price); ?>" />
                     <input type="text" name="category" placeholder="Persentase Promo (Opsional)" class="form-control" value="<?php echo htmlspecialchars($category); ?>" />
                 </div>

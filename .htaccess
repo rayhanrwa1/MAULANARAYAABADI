@@ -1,0 +1,7 @@
+# Aktifkan penulisan ulang URL
+RewriteEngine On
+
+# Arahkan semua URL yang salah atau halaman yang tidak ditemukan ke index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /index.php [L]
