@@ -65,15 +65,15 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Place favicon.png in the root directory -->
-    <link rel="shortcut icon" href="User/img/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="/User/img/favicon.svg" type="image/x-icon" />
     <!-- Font Icons css -->
-    <link rel="stylesheet" href="User/css/font-icons.css">
+    <link rel="stylesheet" href="/User/css/font-icons.css">
     <!-- plugins css -->
-    <link rel="stylesheet" href="User/css/plugins.css">
+    <link rel="stylesheet" href="/User/css/plugins.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="User/css/style.css">
+    <link rel="stylesheet" href="/User/css/style.css">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="User/css/responsive.css">
+    <link rel="stylesheet" href="/User/css/responsive.css">
 </head>
 
 <body>
