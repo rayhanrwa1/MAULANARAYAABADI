@@ -1,7 +1,10 @@
-# Aktifkan penulisan ulang URL
+# Mengaktifkan mod_rewrite
 RewriteEngine On
 
-# Arahkan semua URL yang salah atau halaman yang tidak ditemukan ke index.php
+# Redirect halaman yang tidak ditemukan ke halaman utama
+ErrorDocument 404 /index.php
+
+# Jika Anda ingin mengarahkan semua URL yang tidak cocok ke halaman utama
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ /index.php [L]
+RewriteRule . /index.php [L]
