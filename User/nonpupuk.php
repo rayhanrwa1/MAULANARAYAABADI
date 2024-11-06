@@ -270,14 +270,16 @@ function formatRupiah($number) {
 
                                                         <?php if ($row['stok_status'] == 1): ?>
                                                             <div class="product-price">
-                                                                <?php if (!empty($row['promo_price'])) { ?>
-                                                                    <!-- Jika ada promo_price, tampilkan harga promo dan harga asli -->
+                                                                <?php if (!empty($row['promo_price']) && $row['promo_price'] > 0): ?>
+                                                                    <!-- Jika ada promo_price dan nilainya lebih dari 0, tampilkan harga promo dan harga asli -->
                                                                     <span><?php echo formatRupiah($row['promo_price']); ?></span>
-                                                                    <del><?php echo formatRupiah($row['price']); ?></del>
-                                                                <?php } else { ?>
-                                                                    <!-- Jika promo_price kosong, hanya tampilkan harga asli -->
+                                                                    <?php if (!empty($row['price']) && $row['price'] > 0): ?>
+                                                                        <del><?php echo formatRupiah($row['price']); ?></del>
+                                                                    <?php endif; ?>
+                                                                <?php elseif (!empty($row['price']) && $row['price'] > 0): ?>
+                                                                    <!-- Jika promo_price kosong atau 0, hanya tampilkan harga asli jika nilainya lebih dari 0 -->
                                                                     <span><?php echo formatRupiah($row['price']); ?></span>
-                                                                <?php } ?>
+                                                                <?php endif; ?>
                                                             </div>
                                                         <?php else: ?>
                                                             <div class="product-price">
