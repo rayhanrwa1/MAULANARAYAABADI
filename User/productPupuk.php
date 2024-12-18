@@ -320,9 +320,8 @@ $conn->close();
                                 <div class="modal-product-info shop-details-info pl-0">
                                     <?php if ($productData) { ?>
                                         <h3><?php echo $productData["item_name"]; ?></h3>
-                                        <div class="product-price">
-                                            <?php if ($row['stok_status'] == 1): ?>
-                                                <div class="product-price">
+                                            <div class="product-price">
+                                                <?php if ($row['stok_status'] == 1): ?>
                                                     <?php if (!empty($row['promo_price']) && $row['promo_price'] > 0): ?>
                                                         <!-- Jika ada promo_price dan nilainya lebih dari 0, tampilkan harga promo dan harga asli -->
                                                         <span><?php echo formatRupiah($row['promo_price']); ?></span>
@@ -333,13 +332,12 @@ $conn->close();
                                                         <!-- Jika promo_price kosong atau 0, hanya tampilkan harga asli jika nilainya lebih dari 0 -->
                                                         <span><?php echo formatRupiah($row['price']); ?></span>
                                                     <?php endif; ?>
-                                                </div>
-                                            <?php else: ?>
-                                                <div class="product-price">
+                                                <?php else: ?>
+                                                    <!-- Jika stok habis, tampilkan pesan -->
                                                     <span style="color: red; font-weight: bold;">Stok Habis</span>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
+                                                <?php endif; ?>
+                                            </div>
+
                                     <?php } ?>
                                     <?php if (!empty($productData['brochure_update'])): ?>
                                         <div class="ltn__product-details-menu-3">
