@@ -321,23 +321,22 @@ $conn->close();
                                     <?php if ($productData) { ?>
                                         <h3><?php echo $productData["item_name"]; ?></h3>
                                             <div class="product-price">
-                                                <?php if ($row['stok_status'] == 1): ?>
-                                                    <?php if (!empty($row['promo_price']) && $row['promo_price'] > 0): ?>
+                                                <?php if ($productData['stok_status'] == 1): ?>
+                                                    <?php if (!empty($productData['promo_price']) && $productData['promo_price'] > 0): ?>
                                                         <!-- Jika ada promo_price dan nilainya lebih dari 0, tampilkan harga promo dan harga asli -->
-                                                        <span><?php echo formatRupiah($row['promo_price']); ?></span>
-                                                        <?php if (!empty($row['price']) && $row['price'] > 0): ?>
-                                                            <del><?php echo formatRupiah($row['price']); ?></del>
+                                                        <span><?php echo formatRupiah($productData['promo_price']); ?></span>
+                                                        <?php if (!empty($productData['price']) && $productData['price'] > 0): ?>
+                                                            <del><?php echo formatRupiah($productData['price']); ?></del>
                                                         <?php endif; ?>
-                                                    <?php elseif (!empty($row['price']) && $row['price'] > 0): ?>
+                                                    <?php elseif (!empty($productData['price']) && $productData['price'] > 0): ?>
                                                         <!-- Jika promo_price kosong atau 0, hanya tampilkan harga asli jika nilainya lebih dari 0 -->
-                                                        <span><?php echo formatRupiah($row['price']); ?></span>
+                                                        <span><?php echo formatRupiah($productData['price']); ?></span>
                                                     <?php endif; ?>
                                                 <?php else: ?>
                                                     <!-- Jika stok habis, tampilkan pesan -->
                                                     <span style="color: red; font-weight: bold;">Stok Habis</span>
                                                 <?php endif; ?>
                                             </div>
-
                                     <?php } ?>
                                     <?php if (!empty($productData['brochure_update'])): ?>
                                         <div class="ltn__product-details-menu-3">
